@@ -1,1 +1,25 @@
+import random
+op = random.randint(1, 101)
+listazgad = [0]
+print("Gra sie zaczyna, wylosowano jedna liczbę od 1 do 100 spróbuj zgadnąć jaka to liczba żeby wygrać!")
+while True:
+    zgad = int(input("Wpisz liczbę od 1 do 100 "))
+    if zgad <= 0 or zgad > 100:
+        print("Liczba poza skalą")
+        continue
+    if zgad == op:
+        print(f'Udało ci się, poprawna liczba to {op}')
+        break
+        
+    listazgad.append(zgad)
 
+    if listazgad[-2]:
+        if abs(zgad-op) < abs(listazgad[-2]-op):
+            print("Cieplej")
+        else:
+            print("Zimniej")
+    else:
+        if abs(zgad-op) <= 10:
+            print("Gorąco")
+        else:
+            print("Lodowato")
